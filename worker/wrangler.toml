@@ -9,7 +9,7 @@ crons = ["0 * * * *"]   # Cada hora en punto
 
 [[kv_namespaces]]
 binding = "NOTICIAS_KV"
-id = "REEMPLAZAR_CON_ID_KV"   # Obtener con: wrangler kv:namespace create NOTICIAS_KV
+id = "f71775394637491c94a3b0ad268015e3"
 
 [env.production]
 routes = [{ pattern = "api.periodico.one/*", zone_name = "periodico.one" }]
