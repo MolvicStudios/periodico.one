@@ -158,6 +158,7 @@ async function handleSummarize(btn, article) {
         <span class="feedback-thanks" style="display:none">¡Gracias por tu opinión! 🙏</span>
       </div>
     `
+    window.molvicTrack && window.molvicTrack('news_summarized')
   } catch {
     box.innerHTML = '<div class="summary-error">Error al generar resumen. Inténtalo de nuevo.</div>'
   } finally {
