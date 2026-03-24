@@ -7,7 +7,11 @@
 
 const GROQ_ENDPOINT   = 'https://api.groq.com/openai/v1/chat/completions'
 const MODEL           = 'llama-3.3-70b-versatile'
-const ALLOWED_ORIGINS = ['https://periodico.one', 'https://www.periodico.one']
+const ALLOWED_ORIGINS = [
+  'https://periodico.one',
+  'https://www.periodico.one',
+  'https://periodico-one.pages.dev'
+]
 
 // ── Fuentes RSS por sección ────────────────────────────────
 const RSS_SOURCES = {

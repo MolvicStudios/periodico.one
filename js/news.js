@@ -1,6 +1,6 @@
 // js/news.js — Fetch de noticias del Worker
 
-const API_BASE = 'https://api.periodico.one'
+const API_BASE = 'https://periodico-one.josemmolera.workers.dev'
 
 /**
  * Obtiene noticias de una sección desde el Worker/KV cache.

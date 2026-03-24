@@ -3,6 +3,7 @@
 name = "periodico-one"
 main = "index.js"
 compatibility_date = "2024-01-01"
+workers_dev = true
 
 routes = [{ pattern = "api.periodico.one", custom_domain = true }]
 
