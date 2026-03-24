@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Sitemap: https://periodico.one/sitemap.xml
+
+# Permitir indexación completa
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

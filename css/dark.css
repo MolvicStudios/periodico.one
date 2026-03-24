@@ -1,0 +1,50 @@
+/* =====================================================
+   PERIODICO.ONE — Dark Mode Component Overrides
+   ===================================================== */
+
+/* Tokens already handle most dark mode via [data-theme="dark"] in tokens.css.
+   This file adds component-level overrides that can't be expressed with
+   CSS custom properties alone. */
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  scrollbar-color: var(--border-strong) var(--bg-elevated);
+  scrollbar-width: thin;
+}
+
+/* Cards without box-shadow in dark mode for cleaner look */
+[data-theme="dark"] .news-card {
+  box-shadow: none;
+}
+
+[data-theme="dark"] .news-featured {
+  box-shadow: none;
+}
+
+/* Glassy navbar in dark mode */
+[data-theme="dark"] .navbar {
+  background: rgba(22, 27, 34, 0.92);
+}
+
+/* Slightly dimmed links in dark mode for featured buttons */
+[data-theme="dark"] .btn-verify,
+[data-theme="dark"] .btn-verify-sm {
+  border-color: var(--border);
+}
+
+/* Summary box border accent */
+[data-theme="dark"] .summary-content {
+  background: rgba(248, 81, 73, 0.06);
+}
+
+/* Scrollbar dark mode for sections bar */
+[data-theme="dark"] .sections-bar .container {
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+/* Skeleton loading in dark mode */
+[data-theme="dark"] .skeleton-featured,
+[data-theme="dark"] .skeleton-card {
+  background: var(--bg-elevated);
+  border-color: var(--border);
+}

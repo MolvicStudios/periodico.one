@@ -1,0 +1,64 @@
+/* =====================================================
+   PERIODICO.ONE — Design Tokens
+   ===================================================== */
+:root {
+  /* ── Colores de fondo (modo claro) ── */
+  --bg-base:       #FFFFFF;
+  --bg-surface:    #F9FAFB;
+  --bg-elevated:   #F3F4F6;
+  --bg-card:       #FFFFFF;
+
+  /* ── Texto ── */
+  --text-primary:  #111827;
+  --text-secondary:#4B5563;
+  --text-tertiary: #9CA3AF;
+  --text-accent:   #DC2626;   /* rojo periódico */
+
+  /* ── Bordes ── */
+  --border:        #E5E7EB;
+  --border-strong: #D1D5DB;
+
+  /* ── Secciones ── */
+  --color-tech:    #2563EB;   /* Tecnología e IA */
+  --color-eco:     #059669;   /* Economía */
+  --color-pol:     #7C3AED;   /* Política */
+  --color-sci:     #0891B2;   /* Ciencia */
+  --color-cul:     #D97706;   /* Cultura */
+
+  /* ── Tipografía ── */
+  --font-display:  'Playfair Display', Georgia, serif;
+  --font-body:     'Source Sans 3', system-ui, sans-serif;
+
+  /* ── Radios ── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* ── Sombras ── */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.10);
+
+  /* ── Transiciones ── */
+  --transition: 0.15s ease;
+}
+
+/* =====================================================
+   DARK MODE — por defecto al cargar
+   ===================================================== */
+[data-theme="dark"] {
+  --bg-base:       #0F1117;
+  --bg-surface:    #161B22;
+  --bg-elevated:   #1C2128;
+  --bg-card:       #161B22;
+
+  --text-primary:  #E6EDF3;
+  --text-secondary:#8B949E;
+  --text-tertiary: #484F58;
+  --text-accent:   #F85149;
+
+  --border:        #21262D;
+  --border-strong: #30363D;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+}
