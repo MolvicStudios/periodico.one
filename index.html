@@ -53,6 +53,28 @@
   }
   </script>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Periodico.one",
+    "url": "https://periodico.one",
+    "description": "Periódico digital que agrega y resume noticias mundiales en español con IA, sin sesgos.",
+    "applicationCategory": "NewsApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "MolvicStudios",
+      "url": "https://molvicstudios.pro"
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
@@ -183,5 +205,60 @@
 </footer>
 
 <script type="module" src="/js/app.js"></script>
+
+<!-- BANNER COOKIES -->
+<div id="cookie-banner" style="display:none" role="dialog" aria-label="Aviso de cookies">
+  <div class="cookie-content">
+    <div class="cookie-text">
+      <strong>Usamos cookies</strong>
+      <p>Utilizamos cookies técnicas necesarias para el funcionamiento y cookies analíticas opcionales para mejorar la experiencia. <a href="/privacidad.html">Política de privacidad</a></p>
+    </div>
+    <div class="cookie-actions">
+      <button onclick="acceptNecessaryCookies()" class="btn-cookie-secondary">Solo necesarias</button>
+      <button onclick="openCookieConfig()" class="btn-cookie-config">Configurar</button>
+      <button onclick="acceptAllCookies()" class="btn-cookie-primary">Aceptar todas</button>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL CONFIGURACIÓN COOKIES -->
+<div id="cookie-config-panel" style="display:none">
+  <div class="cookie-config-overlay" onclick="document.getElementById('cookie-config-panel').style.display='none'"></div>
+  <div class="cookie-config-modal">
+    <h3>Configuración de cookies</h3>
+
+    <div class="cookie-type">
+      <div class="cookie-type-info">
+        <strong>Cookies técnicas</strong>
+        <p>Necesarias para el funcionamiento básico. No se pueden desactivar.</p>
+      </div>
+      <input type="checkbox" checked disabled>
+    </div>
+
+    <div class="cookie-type">
+      <div class="cookie-type-info">
+        <strong>Cookies analíticas</strong>
+        <p>Nos ayudan a entender cómo usas la web para mejorarla.</p>
+      </div>
+      <input type="checkbox" id="cookie-analytics">
+    </div>
+
+    <div class="cookie-type">
+      <div class="cookie-type-info">
+        <strong>Cookies de marketing</strong>
+        <p>Para mostrarte publicidad relevante (AdSense).</p>
+      </div>
+      <input type="checkbox" id="cookie-marketing">
+    </div>
+
+    <div class="cookie-config-actions">
+      <button onclick="acceptNecessaryCookies()">Solo necesarias</button>
+      <button onclick="saveCookieConfig()" class="btn-cookie-primary">Guardar preferencias</button>
+    </div>
+  </div>
+</div>
+
+<script src="/js/cookies.js"></script>
+<script src="/js/onboarding.js"></script>
 </body>
 </html>

@@ -135,13 +135,87 @@ async function handleSummarize(btn, article) {
   try {
     const { resumirNoticia } = await import('./news.js')
     const resumen = await resumirNoticia(titulo, desc)
-    box.innerHTML = `<div class="summary-content"><strong>Resumen IA</strong>${esc(resumen)}</div>`
+    box.innerHTML = `
+      <div class="ai-indicator">
+        <span class="ai-badge">✦ Generado por IA</span>
+        <span class="ai-disclaimer">Resultado orientativo — verifica antes de usar</span>
+      </div>
+      <div class="summary-content"><strong>Resumen IA</strong>${esc(resumen)}</div>
+      <div class="share-block">
+        <span class="share-label">Compartir resultado:</span>
+        <button class="btn-share-wa" onclick="shareWhatsApp()">WhatsApp</button>
+        <button class="btn-share-tw" onclick="shareTwitter()">Twitter / X</button>
+        <button class="btn-share-copy" onclick="shareURL()">Copiar enlace</button>
+      </div>
+      <div class="feedback-block">
+        <span class="feedback-label">¿Ha sido útil este resultado?</span>
+        <button class="btn-feedback" onclick="sendFeedback('positive', this)" title="Sí, útil">👍</button>
+        <button class="btn-feedback" onclick="sendFeedback('negative', this)" title="Mejorable">👎</button>
+        <div class="feedback-comment" style="display:none">
+          <input type="text" placeholder="¿Qué podría mejorar? (opcional)">
+          <button onclick="submitFeedback(this)">Enviar</button>
+        </div>
+        <span class="feedback-thanks" style="display:none">¡Gracias por tu opinión! 🙏</span>
+      </div>
+    `
   } catch {
     box.innerHTML = '<div class="summary-error">Error al generar resumen. Inténtalo de nuevo.</div>'
   } finally {
     btn.textContent = idleLabel
     btn.disabled = false
   }
+}
+
+// ── Share functions ──
+function getShareText() {
+  return encodeURIComponent('Lee las noticias del mundo sin sesgos en Periodico.one')
+}
+
+function getShareURL() {
+  return encodeURIComponent(window.location.href)
+}
+
+window.shareWhatsApp = function() {
+  window.open(`https://wa.me/?text=${getShareText()}%20${getShareURL()}`, '_blank')
+}
+
+window.shareTwitter = function() {
+  window.open(`https://twitter.com/intent/tweet?text=${getShareText()}&url=${getShareURL()}`, '_blank')
+}
+
+window.shareURL = function() {
+  navigator.clipboard.writeText(window.location.href)
+    .then(() => showToast('¡Enlace copiado!'))
+}
+
+function showToast(msg) {
+  const t = document.createElement('div')
+  t.className = 'toast-msg'
+  t.textContent = msg
+  document.body.appendChild(t)
+  setTimeout(() => t.remove(), 2500)
+}
+
+// ── Feedback functions ──
+window.sendFeedback = function(type, btn) {
+  const block = btn.closest('.feedback-block')
+  const key = 'periodico_feedback'
+  const data = { type, url: window.location.href, ts: Date.now() }
+  const existing = JSON.parse(localStorage.getItem(key) || '[]')
+  existing.push(data)
+  localStorage.setItem(key, JSON.stringify(existing.slice(-20)))
+
+  if (type === 'negative') {
+    const comment = block.querySelector('.feedback-comment')
+    if (comment) comment.style.display = 'flex'
+  } else {
+    block.innerHTML = '<span class="feedback-thanks">¡Gracias por tu opinión! 🙏</span>'
+  }
+}
+
+window.submitFeedback = function(btn) {
+  const block = btn.closest('.feedback-block')
+  block.innerHTML = '<span class="feedback-thanks">¡Gracias! Tu opinión nos ayuda a mejorar 🙏</span>'
 }
 
 /**
