@@ -1,7 +1,6 @@
 // js/news.js — Fetch de noticias del Worker
 
-// workers.dev URL mientras api.periodico.one no tenga el DNS apuntado al Worker
-const API_BASE = 'https://periodico-one.josemmolera.workers.dev'
+const API_BASE = 'https://api.periodico.one'
 
 /**
  * Obtiene noticias de una sección desde el Worker/KV cache.
