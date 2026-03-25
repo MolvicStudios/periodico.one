@@ -13,31 +13,42 @@ const ALLOWED_ORIGINS = [
   'https://periodico-one.pages.dev'
 ]
 
-// ── Fuentes RSS por sección ────────────────────────────────
+// ── Fuentes RSS por sección (internacionales en español) ───
 const RSS_SOURCES = {
   tecnologia: [
+    'https://cnnespanol.cnn.com/category/tecnologia/feed/',
+    'https://www.dw.com/es/rss/ciencia-y-tecnolog%C3%ADa/rss.xml',
+    'https://rss.france24.com/rss/es/noticias',
     'https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/tecnologia/portada',
-    'https://www.bbc.com/mundo/rss.xml',
-    'https://www.dw.com/es/rss/tecnologia/rss.xml'
+    'https://www.infobae.com/feeds/rss/'
   ],
   economia: [
+    'https://cnnespanol.cnn.com/category/economia/feed/',
+    'https://www.dw.com/es/rss/econom%C3%ADa/rss.xml',
+    'https://rss.france24.com/rss/es/economía',
     'https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/economia/portada',
-    'https://www.expansion.com/rss/economia.xml',
-    'https://www.bbc.com/mundo/rss.xml'
+    'https://www.infobae.com/feeds/rss/'
   ],
   politica: [
+    'https://cnnespanol.cnn.com/category/mundo/feed/',
+    'https://rss.france24.com/rss/es/noticias',
+    'https://www.dw.com/es/rss/pol%C3%ADtica/rss.xml',
     'https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/internacional/portada',
-    'https://www.dw.com/es/rss/politica/rss.xml',
-    'https://rss.france24.com/rss/es/noticias'
+    'https://www.infobae.com/feeds/rss/'
   ],
   ciencia: [
+    'https://cnnespanol.cnn.com/category/salud/feed/',
+    'https://www.dw.com/es/rss/ciencia-y-tecnolog%C3%ADa/rss.xml',
+    'https://rss.france24.com/rss/es/noticias',
     'https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/ciencia/portada',
-    'https://www.bbc.com/mundo/rss.xml',
-    'https://www.dw.com/es/rss/ciencia/rss.xml'
+    'https://www.infobae.com/feeds/rss/'
   ],
   cultura: [
+    'https://cnnespanol.cnn.com/category/entretenimiento/feed/',
+    'https://rss.france24.com/rss/es/cultura',
+    'https://www.dw.com/es/rss/cultura/rss.xml',
     'https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/cultura/portada',
-    'https://www.lavanguardia.com/rss/home.xml'
+    'https://www.infobae.com/feeds/rss/'
   ]
 }
 
@@ -90,18 +101,18 @@ async function fetchRSS(url) {
   }
 }
 
-// ── NewsAPI por sección ────────────────────────────────────
+// ── NewsAPI por sección (noticias mundiales en español) ────
 async function fetchNewsAPI(seccion, apiKey) {
   const queries = {
-    tecnologia: 'tecnologia OR inteligencia artificial OR startup',
-    economia:   'economia OR mercados OR finanzas OR bolsa',
-    politica:   'politica OR gobierno OR elecciones OR geopolitica',
-    ciencia:    'ciencia OR investigacion OR salud OR medio ambiente',
-    cultura:    'cultura OR arte OR sociedad OR entretenimiento'
+    tecnologia: 'tecnología OR inteligencia artificial OR startup OR innovación',
+    economia:   'economía OR mercados OR finanzas OR inflación OR comercio',
+    politica:   'política OR gobierno OR elecciones OR geopolítica OR conflicto',
+    ciencia:    'ciencia OR investigación OR salud OR clima OR medio ambiente',
+    cultura:    'cultura OR arte OR cine OR música OR entretenimiento'
   }
   try {
     const q   = encodeURIComponent(queries[seccion] || seccion)
-    const url = `https://newsapi.org/v2/everything?q=${q}&language=es&sortBy=publishedAt&pageSize=5&apiKey=${apiKey}`
+    const url = `https://newsapi.org/v2/everything?q=${q}&language=es&sortBy=publishedAt&pageSize=10&apiKey=${apiKey}`
     const res = await fetch(url)
     const data = await res.json()
     return (data.articles || []).map(a => ({
