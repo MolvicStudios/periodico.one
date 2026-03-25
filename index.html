@@ -79,6 +79,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
 
+  <link rel="preload" href="/css/tokens.css" as="style">
+  <link rel="preload" href="/css/reset.css" as="style">
+  <link rel="preload" href="/css/layout.css" as="style">
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/layout.css">
@@ -90,12 +93,14 @@
 </head>
 <body data-theme="dark">
 
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
+
 <!-- NAVBAR -->
-<nav class="navbar">
+<nav class="navbar" aria-label="Principal">
   <div class="container nav-inner">
     <a href="/" class="nav-logo">
       <span class="nav-logo-name">Periodico<span class="nav-logo-dot">.one</span></span>
-      <span class="nav-by">by <a href="https://molvicstudios.pro" target="_blank" rel="noopener noreferrer">MolvicStudios.pro</a></span>
+      <span class="nav-by">by MolvicStudios.pro</span>
     </a>
 
     <div class="nav-search">
@@ -111,7 +116,7 @@
 </nav>
 
 <!-- SECCIONES -->
-<div class="sections-bar" role="navigation" aria-label="Secciones">
+<nav class="sections-bar" aria-label="Secciones">
   <div class="container">
     <button class="section-tab active" data-seccion="tecnologia">Tecnología e IA</button>
     <button class="section-tab" data-seccion="economia">Economía</button>
@@ -119,10 +124,10 @@
     <button class="section-tab" data-seccion="ciencia">Ciencia</button>
     <button class="section-tab" data-seccion="cultura">Cultura</button>
   </div>
-</div>
+</nav>
 
 <!-- CONTENIDO PRINCIPAL -->
-<main class="main-content" id="main">
+<main class="main-content" id="main-content">
   <div class="container">
     <div id="news-container" aria-live="polite" aria-label="Noticias">
       <!-- Skeleton loading -->
@@ -222,7 +227,7 @@
 </div>
 
 <!-- PANEL CONFIGURACIÓN COOKIES -->
-<div id="cookie-config-panel" style="display:none">
+<div id="cookie-config-panel" style="display:none" role="dialog" aria-label="Configuración de cookies">
   <div class="cookie-config-overlay" onclick="document.getElementById('cookie-config-panel').style.display='none'"></div>
   <div class="cookie-config-modal">
     <h3>Configuración de cookies</h3>
@@ -240,7 +245,7 @@
         <strong>Cookies analíticas</strong>
         <p>Nos ayudan a entender cómo usas la web para mejorarla.</p>
       </div>
-      <input type="checkbox" id="cookie-analytics">
+      <input type="checkbox" id="cookie-analytics" aria-label="Cookies analíticas">
     </div>
 
     <div class="cookie-type">
@@ -248,7 +253,7 @@
         <strong>Cookies de marketing</strong>
         <p>Para mostrarte publicidad relevante (AdSense).</p>
       </div>
-      <input type="checkbox" id="cookie-marketing">
+      <input type="checkbox" id="cookie-marketing" aria-label="Cookies de marketing">
     </div>
 
     <div class="cookie-config-actions">
@@ -258,8 +263,8 @@
   </div>
 </div>
 
-<script src="/js/cookies.js"></script>
-<script src="/js/onboarding.js"></script>
+<script src="/js/cookies.js" defer></script>
+<script src="/js/onboarding.js" defer></script>
 <!-- MolvicStudios Analytics -->
 <script src="/analytics.js" defer></script>
 </body>

@@ -12,7 +12,6 @@
   color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 0.875rem;
-  outline: none;
   min-width: 0;
   transition: border-color var(--transition), background var(--transition);
 }
