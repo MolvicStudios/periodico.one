@@ -115,6 +115,16 @@
     animation: slide-up 0.25s ease;
   }
 
+  .reader-close {
+    min-height: 44px;
+    padding: 0.625rem 1.125rem;
+    font-size: 0.875rem;
+  }
+  .reader-source-link {
+    min-height: 44px;
+    padding: 0.875rem 1.5rem;
+  }
+
   @keyframes slide-up {
     from {
       transform: translateY(30px);

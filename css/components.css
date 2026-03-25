@@ -16,6 +16,9 @@
   color: var(--text-secondary);
   cursor: pointer;
   white-space: nowrap;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   transition: color var(--transition), border-color var(--transition);
   margin-bottom: -2px; /* Overlap border-bottom of parent */
 }
@@ -179,6 +182,7 @@
   text-decoration: none;
   font-size: 0.875rem;
   font-weight: 700;
+  min-height: 44px;
   letter-spacing: 0.2px;
   transition: opacity var(--transition), transform var(--transition);
   display: inline-flex;
@@ -197,7 +201,8 @@
   color: var(--text-primary);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
+  min-height: 44px;
   font-weight: 500;
   cursor: pointer;
   transition: background var(--transition), border-color var(--transition), color var(--transition);
@@ -221,8 +226,9 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   text-decoration: none;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 500;
+  min-height: 44px;
   transition: color var(--transition), border-color var(--transition), background var(--transition);
   display: inline-flex;
   align-items: center;
@@ -298,8 +304,8 @@
 
 /* ── Dark toggle button ── */
 .btn-dark-toggle {
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
@@ -450,6 +456,7 @@
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 600;
+  min-height: 44px;
   transition: opacity var(--transition);
 }
 
@@ -583,3 +590,51 @@
    ===================================================== */
 .toast-msg { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border); border-radius: 8px; padding: 10px 20px; font-size: 13px; z-index: 10001; box-shadow: 0 4px 16px rgba(0,0,0,0.15); animation: toast-in 0.3s ease; }
 @keyframes toast-in { from { opacity: 0; transform: translateX(-50%) translateY(10px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+
+/* =====================================================
+   RESPONSIVE — TOUCH TARGETS & FONT LEGIBILITY
+   ===================================================== */
+@media (max-width: 768px) {
+  /* Card small buttons → touch-friendly */
+  .btn-read-sm { padding: 0.5rem 0.875rem; font-size: 0.8125rem; min-height: 44px; }
+  .btn-summarize-sm, .btn-reader-sm { padding: 0.5rem 0.75rem; font-size: 0.8125rem; min-height: 44px; }
+  .btn-verify-sm { padding: 0.5rem 0.75rem; font-size: 0.8125rem; min-height: 44px; }
+
+  /* Share buttons */
+  .btn-share-wa, .btn-share-tw, .btn-share-copy { padding: 0.5rem 0.875rem; font-size: 0.8125rem; min-height: 44px; }
+
+  /* Feedback */
+  .btn-feedback { padding: 0.5rem 0.75rem; min-height: 44px; }
+  .feedback-comment input { padding: 0.625rem 0.75rem; font-size: 0.875rem; min-height: 44px; }
+  .feedback-comment button { padding: 0.5rem 0.875rem; font-size: 0.875rem; min-height: 44px; }
+
+  /* Cookie buttons */
+  .btn-cookie-primary, .btn-cookie-secondary, .btn-cookie-config { padding: 0.75rem 1rem; font-size: 0.875rem; min-height: 44px; }
+
+  /* Onboarding */
+  .onboarding-actions button { padding: 0.75rem 1rem; font-size: 0.875rem; min-height: 44px; }
+  .onboarding-skip { padding: 0.5rem 0.75rem; font-size: 0.8125rem; min-height: 44px; }
+
+  /* Font floors */
+  .cookie-text { font-size: 0.875rem; }
+  .cookie-type-info strong { font-size: 0.875rem; }
+  .cookie-type-info p { font-size: 0.8125rem; }
+  .onboarding-tooltip p { font-size: 0.875rem; }
+  .share-label { font-size: 0.875rem; }
+  .feedback-label { font-size: 0.875rem; }
+  .feedback-thanks { font-size: 0.875rem; }
+  .ai-badge { font-size: 0.75rem; }
+  .ai-disclaimer { font-size: 0.75rem; }
+  .toast-msg { font-size: 0.875rem; }
+  .summary-content strong { font-size: 0.8125rem; }
+  .news-section-badge { font-size: 0.75rem; }
+}
+
+@media (max-width: 375px) {
+  .news-featured { padding: 1rem; }
+  .news-card { padding: 1rem; }
+  .news-actions { flex-direction: column; }
+  .news-actions .btn-read,
+  .news-actions .btn-summarize,
+  .news-actions .btn-verify { width: 100%; justify-content: center; }
+}

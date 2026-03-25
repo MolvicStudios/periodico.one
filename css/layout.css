@@ -204,6 +204,8 @@
   text-decoration: none;
   transition: color var(--transition);
   line-height: 1.4;
+  display: inline-block;
+  padding: 4px 0;
 }
 
 .footer-col ul li a:hover {
@@ -304,4 +306,9 @@
   .main-content {
     padding: 1.25rem 0 2rem;
   }
+}
+
+@media (max-width: 375px) {
+  .container { padding: 0 0.75rem; }
+  .nav-logo-name { font-size: 1.2rem; }
 }

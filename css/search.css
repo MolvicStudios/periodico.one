@@ -78,3 +78,21 @@
 .search-results-header span {
   color: var(--text-accent);
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  #search-input {
+    padding: 0.75rem 0.875rem;
+    font-size: 1rem;
+    min-height: 44px;
+  }
+  #search-btn {
+    padding: 0.75rem 1.125rem;
+    min-height: 44px;
+  }
+  .search-clear {
+    padding: 0.625rem;
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
